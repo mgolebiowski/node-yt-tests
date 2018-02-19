@@ -1,0 +1,12 @@
+{
+  "name": "node-yt-tests",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "mgolebiowski",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "google-auth-library": "^1.2.1",
+    "googleapis": "^26.0.1"
+  }
+}
