@@ -99,9 +99,11 @@ function storeToken(token) {
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
 function getChannel(auth) {
-  var service = google.youtube('v3');
+  var service = google.youtube({
+    version: 'v3',
+    auth
+  });
   service.channels.list({
-    auth: auth,
     part: 'snippet,contentDetails,statistics',
     forUsername: 'GoogleDevelopers'
   }, function(err, response) {
@@ -109,7 +111,7 @@ function getChannel(auth) {
       console.log('The API returned an error: ' + err);
       return;
     }
-    var channels = response.items;
+    var channels = response.data.items;
     if (channels.length == 0) {
       console.log('No channel found.');
     } else {
